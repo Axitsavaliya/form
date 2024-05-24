@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>Login form</h2>
+        <form id="form">
+            <div class="user-box">
+                <input type="text" id="Username" name="" required="">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="Email" id="Email" name="" required="">
+                <label>Email</label>
+            </div>
+            <div class="user-box">
+                <input type="password" id="password"   name="" required="">
+                <label>Password</label>
+            </div>
+            <div class="user-box">
+                <input type="confirmpassword" id="confirmpassword"  name="" required="">
+                <label>confirmpassword</label>
+            </div>
+            <button onclick="submit()" style="background-color: blue; padding: 10px 30px; font-size: 20px; color: wheat; border: 1px solid white; display: flex; margin: 0 auto;">submit</button>
+        </form>
+    </div>
+    <script>
+        function submit() {
+            let Username = document.getElementById("Username").value;
+            let Email = document.getElementById("Email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmpassword").value;
+
+            
+            if (Username === "" || Email === "" || password === "" || confirmPassword === "") {
+                alert("required to Fill ");
+            } else if (password !== confirmPassword) {
+                alert("Password  not match ");
+            } else if (password.length < 8 || password.length > 16) {
+                alert("Password  8 and 16 ");
+            } else {
+                alert("User Successfully Logged In");
+                window.location.href = "dashboard.html";
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!-- 
+if (password !== confirmPassword) {
+    event.preventDefault();
+    document.getElementById('confirmPassword').classList.add('error');
+    return false;
+  } else {
+    document.getElementById('confirmPassword').classList.remove('error');
+  } -->
+<!-- let Username = document.getElementById("Username").value; -->
+<!-- let Email = document.getElementById("Email").value; -->
